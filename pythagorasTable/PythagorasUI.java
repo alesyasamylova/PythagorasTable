@@ -91,20 +91,20 @@ public class PythagorasUI {
 	
 	public static void main(String[] args) throws ParseException, UnsupportedEncodingException{	
 		System.out.println("--------------------------------------------------\n"
-				           + "Добро пожаловать в программу астрологических расчетов\n"
+				           + "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РїСЂРѕРіСЂР°РјРјСѓ Р°СЃС‚СЂРѕР»РѕРіРёС‡РµСЃРєРёС… СЂР°СЃС‡РµС‚РѕРІ\n"
 				           + "Welcome to program of astrological calculations!\n"
 				           +"--------------------------------------------------\n"
-				           +"Заполните входные данные рождения/ Fill in input data of birth");
+				           +"Р—Р°РїРѕР»РЅРёС‚Рµ РІС…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ СЂРѕР¶РґРµРЅРёСЏ/ Fill in input data of birth");
 		Scanner in = new Scanner(System.in);
-		System.out.println("День / Day: ");
+		System.out.println("Р”РµРЅСЊ / Day: ");
 		int bDay = in.nextInt();
-		System.out.println("Месяц / Month: ");
+		System.out.println("РњРµСЃСЏС† / Month: ");
 		int bMonth = in.nextInt();
-		System.out.println("Год / Year: ");
+		System.out.println("Р“РѕРґ / Year: ");
 		int bYear = in.nextInt();
 		
 		System.out.println("--------------------------------------------------\n"
-				           + "Ваша дата рождения\n"
+				           + "Р’Р°С€Р° РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ\n"
 				           + "Your date of birth (Day.Month.Year):\n"
 				           + bDay + "." + bMonth + "." + bYear
 				           + "\n--------------------------------------------------");
@@ -117,9 +117,9 @@ public class PythagorasUI {
 			isLeapYear = true;
 		
 		if (isLeapYear) {
-			System.out.println("<" + bYear + ">" + " высокосный год / is leap year");
+			System.out.println("<" + bYear + ">" + " РІС‹СЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ / is leap year");
 		} else {
-			System.out.println("<" + bYear + ">" + " невысокосный год / is not leap year");
+			System.out.println("<" + bYear + ">" + " РЅРµРІС‹СЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ / is not leap year");
 		}
 		String input_date = bDay + "/" + bMonth + "/" + bYear;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -131,20 +131,20 @@ public class PythagorasUI {
 		String strDayOfWeek = "";
 		
 		switch (dayOfWeek) {
-		case 1: strDayOfWeek = "Воскресенье / Sunday"; break;
-		case 2: strDayOfWeek = "Понедельник / Monday"; break;
-		case 3: strDayOfWeek = "Вторник / Tuesday"; break;
-		case 4: strDayOfWeek = "Среда / Wednesday"; break;
-		case 5: strDayOfWeek = "Четверг / Thurday"; break;
-		case 6: strDayOfWeek = "Пятница / Friday"; break;
-		case 7: strDayOfWeek = "Суббота / Saturday"; break;
+		case 1: strDayOfWeek = "Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ / Sunday"; break;
+		case 2: strDayOfWeek = "РџРѕРЅРµРґРµР»СЊРЅРёРє / Monday"; break;
+		case 3: strDayOfWeek = "Р’С‚РѕСЂРЅРёРє / Tuesday"; break;
+		case 4: strDayOfWeek = "РЎСЂРµРґР° / Wednesday"; break;
+		case 5: strDayOfWeek = "Р§РµС‚РІРµСЂРі / Thurday"; break;
+		case 6: strDayOfWeek = "РџСЏС‚РЅРёС†Р° / Friday"; break;
+		case 7: strDayOfWeek = "РЎСѓР±Р±РѕС‚Р° / Saturday"; break;
 		default:
 		}
 		
-		System.out.println("День недели / Day of Week: <" + strDayOfWeek +">");
+		System.out.println("Р”РµРЅСЊ РЅРµРґРµР»Рё / Day of Week: <" + strDayOfWeek +">");
 		
 		System.out.println("--------------------------------------------------\n"
-				         + "--------- Знак зодиака / Zodiacal Sign: ----------");
+				         + "--------- Р—РЅР°Рє Р·РѕРґРёР°РєР° / Zodiacal Sign: ----------");
 		// Reading Horoscope
 		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscopeSigns.ARIES;
 		String horoscopeFileName = "src\\horoscopeInfo\\";
@@ -220,7 +220,7 @@ public class PythagorasUI {
 		
 		//Pythagoras Table Calculation
 		System.out.println("--------------------------------------------------\n"
-        + "------- Магическая Таблица Пифагора/ Pythagoras Magical Table -----");
+        + "------- РњР°РіРёС‡РµСЃРєР°СЏ РўР°Р±Р»РёС†Р° РџРёС„Р°РіРѕСЂР° / Pythagoras Magic Square -----");
 		int [] workingNumArray = new int[7];
 
 		workingNumArray[0] = bDay;
@@ -310,7 +310,7 @@ public class PythagorasUI {
 					case 6: 
 					default: System.out.println("  111111 - (this is rare) crual person, \n"
 							+ "  but at the same time for the loved one \n"
-							+ "  can do the impossible. It’s very difficult to \n"
+							+ "  can do the impossible. ItВ’s very difficult to \n"
 							+ "  communicate with such a person" );
 					
 				} 
@@ -324,7 +324,7 @@ public class PythagorasUI {
 							+ "  to profit from others. Well behaved by nature");
 							break;
 					case 1: System.out.println("  2 - bioenergy is enough for life,\n"
-							+ "  but now, at this stage, it’s too little, so sports are\n"
+							+ "  but now, at this stage, itВ’s too little, so sports are\n"
 							+ "  required. Hypersensitive to atmospheric changes"); 
 							break;
 					case 2: System.out.println("  22 - bioenergy is enough. A person can heal others");
