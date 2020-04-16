@@ -43,6 +43,7 @@ public class PythagorasUI {
 	    	this.value = value;
 	    }
 	}
+
 	public static void readFileToConsole(String fileName){
 		try {
 			File horoscopeFile = new File(fileName);
@@ -58,7 +59,7 @@ public class PythagorasUI {
 		}
 	}
 	
-	public static int DigitsCalculation(int number) {
+	public static int digitsCalculation(int number) {
 		//Addition of digits in number
 		int sum = 0;
 		while (number != 0) {
@@ -69,7 +70,7 @@ public class PythagorasUI {
 		return sum;
 	}
 	
-	public static int CountingDigitsInNumber(int number) {
+	public static int countDigitsInNumber(int number) {
 		int count = 0;
 		while (number != 0) {
 			count ++;
@@ -78,15 +79,15 @@ public class PythagorasUI {
 		return count;
 	} 
 
-	public static int FirstDigitInNumber(int number) {
-		int firstDigitInNumber=0;
+	public static int firstDigitInNumber(int number) {
+		int firstDigit=0;
 	
 		while (number != 0) {
-			firstDigitInNumber = number % 10;
+			firstDigit = number % 10;
 			number /= 10;
 		}
 
-		return firstDigitInNumber;
+		return firstDigit;
 	}
 	
 	public static void main(String[] args) throws ParseException, UnsupportedEncodingException{	
@@ -218,7 +219,7 @@ public class PythagorasUI {
 		
 		//Pythagoras Table Calculation
 		System.out.println("--------------------------------------------------\n"
-        + "------- Pythagoras Magic Square -----");
+		+ "------- Pythagoras Magic Square -----");
 		int [] workingNumArray = new int[7];
 
 		workingNumArray[0] = bDay;
@@ -226,25 +227,25 @@ public class PythagorasUI {
 		workingNumArray[2] = bYear;
 
 		//First Working Number Calculation 
-		int firstWorkingNumber = DigitsCalculation(bDay) + DigitsCalculation(bMonth);
-		firstWorkingNumber += DigitsCalculation(bYear);
+		int firstWorkingNumber = digitsCalculation(bDay) + digitsCalculation(bMonth);
+		firstWorkingNumber += digitsCalculation(bYear);
 		
 		System.out.println("First working number: " + firstWorkingNumber);
 		workingNumArray[3] = firstWorkingNumber;
 		
 		//Second Working Number Calculation
-		int secondWorkingNumber = DigitsCalculation(firstWorkingNumber);
+		int secondWorkingNumber = digitsCalculation(firstWorkingNumber);
 		System.out.println("Second working number: " + secondWorkingNumber);
 		workingNumArray[4] = secondWorkingNumber;
 		
 		//Third Working Number
-		int firstDigitInBirthday = FirstDigitInNumber(bDay);
+		int firstDigitInBirthday = firstDigitInNumber(bDay);
 		int thirdWorkingNumber = firstWorkingNumber - 2*firstDigitInBirthday;
 		System.out.println("Third working number: " + thirdWorkingNumber);
 		workingNumArray[5] = thirdWorkingNumber;
 
 		//Forth Working Number
-		int forthWorkingNumber = DigitsCalculation(thirdWorkingNumber);
+		int forthWorkingNumber = digitsCalculation(thirdWorkingNumber);
 		System.out.println("Forth working number: " + forthWorkingNumber);
 		workingNumArray[6] = forthWorkingNumber;
 		
@@ -322,7 +323,7 @@ public class PythagorasUI {
 							+ "  to profit from others. Well behaved by nature");
 							break;
 					case 1: System.out.println("  2 - bioenergy is enough for life,\n"
-							+ "  but now, at this stage, itÂ’s too little, so sports are\n"
+							+ "  but now, at this stage, it’s too little, so sports are\n"
 							+ "  required. Hypersensitive to atmospheric changes"); 
 							break;
 					case 2: System.out.println("  22 - bioenergy is enough. A person can heal others");
