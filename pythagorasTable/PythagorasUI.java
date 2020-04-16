@@ -91,20 +91,18 @@ public class PythagorasUI {
 	
 	public static void main(String[] args) throws ParseException, UnsupportedEncodingException{	
 		System.out.println("--------------------------------------------------\n"
-				           + "Добро пожаловать в программу астрологических расчетов\n"
 				           + "Welcome to program of astrological calculations!\n"
 				           +"--------------------------------------------------\n"
-				           +"Заполните входные данные рождения/ Fill in input data of birth");
+				           +"Fill in input data of birth");
 		Scanner in = new Scanner(System.in);
-		System.out.println("День / Day: ");
+		System.out.println("Day: ");
 		int bDay = in.nextInt();
-		System.out.println("Месяц / Month: ");
+		System.out.println("Month: ");
 		int bMonth = in.nextInt();
-		System.out.println("Год / Year: ");
+		System.out.println("Year: ");
 		int bYear = in.nextInt();
 		
 		System.out.println("--------------------------------------------------\n"
-				           + "Ваша дата рождения\n"
 				           + "Your date of birth (Day.Month.Year):\n"
 				           + bDay + "." + bMonth + "." + bYear
 				           + "\n--------------------------------------------------");
@@ -117,9 +115,9 @@ public class PythagorasUI {
 			isLeapYear = true;
 		
 		if (isLeapYear) {
-			System.out.println("<" + bYear + ">" + " высокосный год / is leap year");
+			System.out.println("<" + bYear + ">" + " is leap year");
 		} else {
-			System.out.println("<" + bYear + ">" + " невысокосный год / is not leap year");
+			System.out.println("<" + bYear + ">" + " is not leap year");
 		}
 		String input_date = bDay + "/" + bMonth + "/" + bYear;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -131,20 +129,20 @@ public class PythagorasUI {
 		String strDayOfWeek = "";
 		
 		switch (dayOfWeek) {
-		case 1: strDayOfWeek = "Воскресенье / Sunday"; break;
-		case 2: strDayOfWeek = "Понедельник / Monday"; break;
-		case 3: strDayOfWeek = "Вторник / Tuesday"; break;
-		case 4: strDayOfWeek = "Среда / Wednesday"; break;
-		case 5: strDayOfWeek = "Четверг / Thurday"; break;
-		case 6: strDayOfWeek = "Пятница / Friday"; break;
-		case 7: strDayOfWeek = "Суббота / Saturday"; break;
+		case 1: strDayOfWeek = "Sunday"; break;
+		case 2: strDayOfWeek = "Monday"; break;
+		case 3: strDayOfWeek = "Tuesday"; break;
+		case 4: strDayOfWeek = "Wednesday"; break;
+		case 5: strDayOfWeek = "Thurday"; break;
+		case 6: strDayOfWeek = "Friday"; break;
+		case 7: strDayOfWeek = "Saturday"; break;
 		default:
 		}
 		
-		System.out.println("День недели / Day of Week: <" + strDayOfWeek +">");
+		System.out.println("Day of Week: <" + strDayOfWeek +">");
 		
 		System.out.println("--------------------------------------------------\n"
-				         + "--------- Знак зодиака / Zodiacal Sign: ----------");
+				         + "--------- Zodiacal Sign: ----------");
 		// Reading Horoscope
 		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscopeSigns.ARIES;
 		String horoscopeFileName = "src\\horoscopeInfo\\";
@@ -220,7 +218,7 @@ public class PythagorasUI {
 		
 		//Pythagoras Table Calculation
 		System.out.println("--------------------------------------------------\n"
-        + "------- Магическая Таблица Пифагора / Pythagoras Magic Square -----");
+        + "------- Pythagoras Magic Square -----");
 		int [] workingNumArray = new int[7];
 
 		workingNumArray[0] = bDay;
@@ -310,7 +308,7 @@ public class PythagorasUI {
 					case 6: 
 					default: System.out.println("  111111 - (this is rare) crual person, \n"
 							+ "  but at the same time for the loved one \n"
-							+ "  can do the impossible. Its very difficult to \n"
+							+ "  can do the impossible. It�s very difficult to \n"
 							+ "  communicate with such a person" );
 					
 				} 
@@ -459,7 +457,6 @@ public class PythagorasUI {
 				} 
 			} else if (i+1 == 9) {
 				System.out.println("> Square 9 - Intelligence:");
-				//TODO:
 				switch (PythagorasTable[i]) {
 				case 0: System.out.println("  0 - ");
 						break;
