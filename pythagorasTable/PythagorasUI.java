@@ -119,8 +119,8 @@ public class PythagorasUI {
 		System.out.println("--------------------------------------------------\n"
 				         + "--------- Zodiacal Sign: ----------");
 		// Reading Horoscope
-		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscope.DefineZodiac(bDay, bMonth);
-		ZodiacElements element = ZodiacHoroscope.DefineElement(horoscopeSign);
+		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscope.defineZodiac(bDay, bMonth);
+		ZodiacElements element = ZodiacHoroscope.defineElement(horoscopeSign);
 		String horoscopeFileName = "src\\horoscopeInfo\\" + horoscopeSign.getValue() + "_"
 									+ horoscopeSign.toString().toLowerCase() + ".txt";
 

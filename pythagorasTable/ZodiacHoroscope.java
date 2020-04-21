@@ -33,7 +33,7 @@ public class ZodiacHoroscope {
 		}
 	}
 
-	public static ZodiacHoroscopeSigns DefineZodiac(int bDay, int bMonth) {
+	public static ZodiacHoroscopeSigns defineZodiac(int bDay, int bMonth) {
 		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscopeSigns.ARIES;
 
 		if ((bMonth == 3 && bDay >= 21) || (bMonth == 4 && bDay <= 19)) {
@@ -64,7 +64,7 @@ public class ZodiacHoroscope {
 		return horoscopeSign;
 	}
 
-	public static ZodiacElements DefineElement(ZodiacHoroscopeSigns horoscopeSign) {
+	public static ZodiacElements defineElement(ZodiacHoroscopeSigns horoscopeSign) {
 		ZodiacElements element;
 		switch(horoscopeSign) {
 		    case ARIES:
