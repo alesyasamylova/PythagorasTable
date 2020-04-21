@@ -4,6 +4,8 @@
 package pythagorasTable;
 import java.util.Scanner;
 
+import pythagorasTable.ZodiacHoroscope.*;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.io.*;
@@ -15,34 +17,6 @@ import java.text.SimpleDateFormat;
  *
  */
 public class PythagorasUI {
-	
-
-	public enum ZodiacElements {
-		WATER,
-		FIRE,
-		EARTH,
-		AIR
-	}
-	
-	public enum ZodiacHoroscopeSigns {
-	    ARIES      (1),
-	    TAURUS     (2),
-	    GEMINI     (3),
-	    CANCER     (4),
-	    LEO        (5),
-	    VIRGO      (6),
-	    LIBRA      (7),
-	    SCORPIO    (8),
-	    SAGITTARIUS(9),
-	    CAPRICORN  (10),
-	    AQUARIUS   (11),
-	    PISCES     (12);
-	    private int value;
-	    
-	    private ZodiacHoroscopeSigns(int value){
-	    	this.value = value;
-	    }
-	}
 
 	public static void readFileToConsole(String fileName){
 		try {
@@ -58,7 +32,7 @@ public class PythagorasUI {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static int digitsCalculation(int number) {
 		//Addition of digits in number
 		int sum = 0;
@@ -69,7 +43,7 @@ public class PythagorasUI {
 		}
 		return sum;
 	}
-	
+
 	public static int countDigitsInNumber(int number) {
 		int count = 0;
 		while (number != 0) {
@@ -89,7 +63,7 @@ public class PythagorasUI {
 
 		return firstDigit;
 	}
-	
+
 	public static void main(String[] args) throws ParseException, UnsupportedEncodingException{	
 		System.out.println("--------------------------------------------------\n"
 				           + "Welcome to program of astrological calculations!\n"
@@ -102,7 +76,7 @@ public class PythagorasUI {
 		int bMonth = in.nextInt();
 		System.out.println("Year: ");
 		int bYear = in.nextInt();
-		
+
 		System.out.println("--------------------------------------------------\n"
 				           + "Your date of birth (Day.Month.Year):\n"
 				           + bDay + "." + bMonth + "." + bYear
@@ -145,69 +119,14 @@ public class PythagorasUI {
 		System.out.println("--------------------------------------------------\n"
 				         + "--------- Zodiacal Sign: ----------");
 		// Reading Horoscope
-		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscopeSigns.ARIES;
-		String horoscopeFileName = "src\\horoscopeInfo\\";
-		
-		if ((bMonth == 3 && bDay >= 21) || (bMonth == 4 && bDay <= 19)) {
-			 horoscopeSign = ZodiacHoroscopeSigns.ARIES;
-			 horoscopeFileName += "01_aries.txt";
-		} else if ((bMonth == 4 && bDay >= 20) || (bMonth == 5 && bDay <= 20)) {
-			 horoscopeSign = ZodiacHoroscopeSigns.TAURUS;
-			 horoscopeFileName += "02_taurus.txt";
-		} else if ((bMonth == 5 && bDay >= 21) || (bMonth == 6 && bDay <= 20 )) {
-			horoscopeSign = ZodiacHoroscopeSigns.GEMINI;
-			 horoscopeFileName += "03_gemini.txt";
-		} else if ((bMonth == 6 && bDay >= 21) || (bMonth == 7 && bDay <= 22 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.CANCER;
-			 horoscopeFileName += "04_cancer.txt";
-		} else if ((bMonth == 7 && bDay >= 23) || (bMonth == 8 && bDay <= 22 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.LEO;
-			 horoscopeFileName += "05_leo.txt";
-		} else if ((bMonth == 8 && bDay >= 23) || (bMonth == 9 && bDay <= 22 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.VIRGO;
-			 horoscopeFileName += "06_virgo.txt";
-		} else if ((bMonth == 9 && bDay >= 23) || (bMonth == 10 && bDay <= 22 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.LIBRA;
-			 horoscopeFileName += "07_libra.txt";
-		} else if ((bMonth == 10 && bDay >= 23) || (bMonth == 11 && bDay <= 21 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.SCORPIO;
-			 horoscopeFileName += "08_scorpio.txt";
-		} else if ((bMonth == 11 && bDay >= 22) || (bMonth == 12 && bDay <= 21 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.SAGITTARIUS;
-			 horoscopeFileName += "09_sagittarius.txt";
-		} else if ((bMonth == 12 && bDay >= 22) || (bMonth == 1 && bDay <= 19 )) {
-			 horoscopeSign = ZodiacHoroscopeSigns.CAPRICORN;
-			 horoscopeFileName += "10_capricorn.txt";
-		} else if ((bMonth == 1 && bDay >= 20) || (bMonth == 2 && bDay <= 18)) {
-			 horoscopeSign = ZodiacHoroscopeSigns.AQUARIUS;
-			 horoscopeFileName += "11_aquarius.txt";
-		} else if ((bMonth == 2 && bDay >= 19) || (bMonth == 3 && bDay <= 20)) {
-			 horoscopeSign = ZodiacHoroscopeSigns.PISCES;
-			 horoscopeFileName += "12_pisces.txt";
-		}
-	
-		ZodiacElements element;
-		switch(horoscopeSign) {
-		    case ARIES:
-		    case LEO:
-		    case SAGITTARIUS:
-			   element = ZodiacElements.FIRE;
-			   break;
-		    case CANCER:
-		    case SCORPIO:
-		    case PISCES:
-		    	element = ZodiacElements.WATER;
-		    	break;
-		    case TAURUS:
-		    case VIRGO:
-		    case CAPRICORN:
-		    	element = ZodiacElements.EARTH;
-		    default:  element = ZodiacElements.AIR;
-		}
+		ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscope.DefineZodiac(bDay, bMonth);
+		ZodiacElements element = ZodiacHoroscope.DefineElement(horoscopeSign);
+		String horoscopeFileName = "src\\horoscopeInfo\\" + horoscopeSign.getValue() + "_"
+									+ horoscopeSign.toString().toLowerCase() + ".txt";
 
 		System.out.println(horoscopeSign.toString() + "\n");
-		System.out.println("This sign has ordinal number equals to " + horoscopeSign.value + "\n");
-		
+		System.out.println("This sign has ordinal number equals to " + horoscopeSign.getValue() + "\n");
+
 		readFileToConsole(horoscopeFileName);
 		System.out.println("--------------------------------------------------\n");
 		
@@ -215,8 +134,6 @@ public class PythagorasUI {
 		System.out.println("Element: " + element.toString() +"\n");
 		readFileToConsole("src\\horoscopeInfo\\" + element.toString().toLowerCase().strip()+"_signs.txt");
 
-		
-		
 		//Pythagoras Table Calculation
 		System.out.println("--------------------------------------------------\n"
 		+ "------- Pythagoras Magic Square -----");
