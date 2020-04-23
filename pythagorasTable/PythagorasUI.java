@@ -102,9 +102,9 @@ public class PythagorasUI {
 			readFileToConsole(horoscopeFileName);
 			System.out.println("--------------------------------------------------\n");
 
-
 			System.out.println("Element: " + element.toString() +"\n");
 			readFileToConsole("src\\horoscopeInfo\\" + element.toString().toLowerCase().strip()+"_signs.txt");
+
 			//Pythagoras Table Calculation
 			PythagorasSquare.getPythagorasSquare(bDay, bMonth, bYear);
 
