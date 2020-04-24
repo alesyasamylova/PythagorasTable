@@ -11,6 +11,8 @@ import java.util.Date;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * @author Alesia Samylova
@@ -33,8 +35,55 @@ public class PythagorasUI {
 		}
 	}
 
+	public static void getAge(int bDay, int bMonth, int bYear){
+		LocalDate today = LocalDate.now();
+		LocalDate birthday= LocalDate.of(bYear, bMonth, bDay);
 
-	public static void main(String[] args) throws ParseException, UnsupportedEncodingException{	
+		Period p = Period.between(birthday, today);
+
+		System.out.println("Age: " + p.getYears() + " year(s), " + p.getMonths() 
+							+ " month(s), " + p.getDays() + " day(s)");
+	}
+
+	public static void defineLeapYear(int bYear){
+		Boolean isLeapYear = false;
+		if ((bYear % 4 != 0) || (bYear % 100 == 0 && bYear % 400 != 0))
+			isLeapYear = false;
+		else
+			isLeapYear = true;
+
+		if (isLeapYear) {
+			System.out.println("<" + bYear + ">" + " is leap year");
+		} else {
+			System.out.println("<" + bYear + ">" + " is not leap year");
+		}
+	}
+
+	public static void defineDayOfWeek(int bDay, int bMonth, int bYear) throws ParseException {
+		String input_date = bDay + "/" + bMonth + "/" + bYear;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date birthDate = simpleDateFormat.parse(input_date);
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(birthDate);
+		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+		String strDayOfWeek = "";
+
+		switch (dayOfWeek) {
+		case 1: strDayOfWeek = "Sunday"; break;
+		case 2: strDayOfWeek = "Monday"; break;
+		case 3: strDayOfWeek = "Tuesday"; break;
+		case 4: strDayOfWeek = "Wednesday"; break;
+		case 5: strDayOfWeek = "Thurday"; break;
+		case 6: strDayOfWeek = "Friday"; break;
+		case 7: strDayOfWeek = "Saturday"; break;
+		default:
+		}
+
+		System.out.println("Day of Week: <" + strDayOfWeek +">");
+	}
+
+	public static void main(String[] args) throws ParseException, UnsupportedEncodingException {	
 		int ret= 0;
 		Scanner in = new Scanner(System.in);
 		do {
@@ -54,47 +103,22 @@ public class PythagorasUI {
 					+ bDay + "." + bMonth + "." + bYear
 					+ "\n--------------------------------------------------");
 
-			// Leap year calculation
-			Boolean isLeapYear = false;
-			if ((bYear % 4 != 0) || (bYear % 100 == 0 && bYear % 400 != 0))
-				isLeapYear = false;
-			else
-				isLeapYear = true;
+			//Age calculation
+			getAge(bDay, bMonth, bYear);
 
-			if (isLeapYear) {
-				System.out.println("<" + bYear + ">" + " is leap year");
-			} else {
-				System.out.println("<" + bYear + ">" + " is not leap year");
-			}
-			String input_date = bDay + "/" + bMonth + "/" + bYear;
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			Date birthDate = simpleDateFormat.parse(input_date);
+			// Leap year identification
+			defineLeapYear(bYear);
 
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(birthDate);
-			int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-			String strDayOfWeek = "";
+			// Define day of the week
+			defineDayOfWeek(bDay, bMonth, bYear);
 
-			switch (dayOfWeek) {
-			case 1: strDayOfWeek = "Sunday"; break;
-			case 2: strDayOfWeek = "Monday"; break;
-			case 3: strDayOfWeek = "Tuesday"; break;
-			case 4: strDayOfWeek = "Wednesday"; break;
-			case 5: strDayOfWeek = "Thurday"; break;
-			case 6: strDayOfWeek = "Friday"; break;
-			case 7: strDayOfWeek = "Saturday"; break;
-			default:
-			}
-
-			System.out.println("Day of Week: <" + strDayOfWeek +">");
-
+			// Define Horoscope
 			System.out.println("--------------------------------------------------\n"
 					+ "--------- Zodiacal Sign: ----------");
-			// Reading Horoscope
 			ZodiacHoroscopeSigns horoscopeSign = ZodiacHoroscope.defineZodiac(bDay, bMonth);
 			ZodiacElements element = ZodiacHoroscope.defineElement(horoscopeSign);
 			String horoscopeFileName = "src\\horoscopeInfo\\" + horoscopeSign.getValue() + "_"
-					+ horoscopeSign.toString().toLowerCase() + ".txt";
+										+ horoscopeSign.toString().toLowerCase() + ".txt";
 
 			System.out.println(horoscopeSign.toString() + "\n");
 			System.out.println("This sign has ordinal number equals to " + horoscopeSign.getValue() + "\n");
@@ -105,7 +129,7 @@ public class PythagorasUI {
 			System.out.println("Element: " + element.toString() +"\n");
 			readFileToConsole("src\\horoscopeInfo\\" + element.toString().toLowerCase().strip()+"_signs.txt");
 
-			//Pythagoras Table Calculation
+			// Pythagoras Table Calculation
 			PythagorasSquare.getPythagorasSquare(bDay, bMonth, bYear);
 
 			System.out.println("Press 1 to continue or any number to close the window...\n");
