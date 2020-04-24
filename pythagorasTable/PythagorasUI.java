@@ -18,6 +18,7 @@ import java.time.Period;
  * @author Alesia Samylova
  *
  */
+@SuppressWarnings("unused")
 public class PythagorasUI {
 
 	public static void readFileToConsole(String fileName){
