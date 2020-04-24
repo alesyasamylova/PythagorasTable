@@ -35,7 +35,7 @@ public class PythagorasSquare {
 
 	public static void getPythagorasSquare(int bDay, int bMonth, int bYear) {
 		System.out.println("--------------------------------------------------\n"
-							+ "------- Pythagoras Magic Square -----");
+							+ "--------------- Pythagoras Magic Square ----------");
 		int [] workingNumArray = new int[7];
 
 		workingNumArray[0] = bDay;
