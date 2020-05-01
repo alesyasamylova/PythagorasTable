@@ -47,16 +47,11 @@ public class PythagorasUI {
 	}
 
 	public static void defineLeapYear(int bYear){
-		Boolean isLeapYear = false;
-		if ((bYear % 4 != 0) || (bYear % 100 == 0 && bYear % 400 != 0))
-			isLeapYear = false;
-		else
-			isLeapYear = true;
-
-		if (isLeapYear) {
-			System.out.println("<" + bYear + ">" + " is leap year");
-		} else {
+		if ((bYear % 4 != 0) || (bYear % 100 == 0 && bYear % 400 != 0)) {
 			System.out.println("<" + bYear + ">" + " is not leap year");
+		}
+		else {
+			System.out.println("<" + bYear + ">" + " is leap year");
 		}
 	}
 
@@ -67,21 +62,9 @@ public class PythagorasUI {
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(birthDate);
-		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-		String strDayOfWeek = "";
-
-		switch (dayOfWeek) {
-		case 1: strDayOfWeek = "Sunday"; break;
-		case 2: strDayOfWeek = "Monday"; break;
-		case 3: strDayOfWeek = "Tuesday"; break;
-		case 4: strDayOfWeek = "Wednesday"; break;
-		case 5: strDayOfWeek = "Thurday"; break;
-		case 6: strDayOfWeek = "Friday"; break;
-		case 7: strDayOfWeek = "Saturday"; break;
-		default:
-		}
-
-		System.out.println("Day of Week: <" + strDayOfWeek +">");
+		String[] days = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday",
+									  "Thursday", "Friday", "Saturday"};
+		System.out.println("Day of Week: <" + days[calendar.get(Calendar.DAY_OF_WEEK) - 1] +">");
 	}
 
 	public static void main(String[] args) throws ParseException, UnsupportedEncodingException {	
